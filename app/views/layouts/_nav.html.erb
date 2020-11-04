@@ -1,0 +1,14 @@
+<ul class="nav p-5 h3 " >
+  <li class="nav-item mr-auto">
+    <%= link_to '歡迎使用會員卷兌換系統',root_path, class:'nav-link active text-dark' %>
+  </li>
+  <li class="nav-item mr-3">
+    <%= link_to '註冊',new_user_registration_path, class:'nav-link active' %>
+  </li>
+  <li class="nav-item mr-3">
+    <%= link_to '登入',new_user_session_path, class:'nav-link active'%>
+  </li>
+  <li class="nav-item mr-3">
+    <%= link_to '登出',destroy_user_session_path,method:'DELETE', class:'nav-link active' %>
+  </li>
+</ul>
