@@ -61,7 +61,6 @@ RSpec.describe User, type: :model do
         expect(user).not_to be_valid
       end
     end
-    
   end
 
   describe 'User create' do
@@ -82,6 +81,17 @@ RSpec.describe User, type: :model do
           password: Faker::String.random
         )
         expect(user.email).to eq('zxcv@gmail.com')
+      end
+    end
+  end
+
+  describe 'User table' do
+    context 'well control user table' do
+      it 'should contain id email encrypted_password' do
+        columns = User.column_names
+        expect(columns).to include("id")
+        expect(columns).to include("email")
+        expect(columns).to include("encrypted_password")
       end
     end
   end
