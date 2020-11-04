@@ -49,7 +49,25 @@ RSpec.describe CouponsController, type: :controller do
       end
     end
 
-    
+    context 'when has already coupon' do
+      render_views
+
+      before do
+        user.create_coupon(params[:coupon])
+      end
+
+      it 'should render new' do
+        expect(subject.status).to be 200
+        expect(subject.status).to render_template(:new)
+        expect(subject.body).to match("您已於#{user.coupon.created_at.strftime('%Y年 %m月 %d日')}兌換過")
+      end
+
+      it 'should not add one' do
+        expect{
+          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0987654321' } }
+        }.to change(Coupon, :count).by(0)
+      end
+    end
   end
 
 end
