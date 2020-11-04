@@ -22,4 +22,21 @@ RSpec.describe CouponsController, type: :controller do
     end
   end
 
+  describe '#create' do
+    subject { post :create, params: params }
+
+    let(:params) do
+      {
+        coupon: {
+          name: 'test',
+          twid: TwidGenerator.generate,
+          phone: '0987654321'
+        }
+      }
+    end
+    let(:coupon) { Coupon.last }
+
+    
+  end
+
 end
