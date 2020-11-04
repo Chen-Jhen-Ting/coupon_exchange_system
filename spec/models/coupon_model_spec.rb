@@ -96,7 +96,7 @@ RSpec.describe Coupon, type: :model do
       it 'should be exist' do
         coupon = user.create_coupon(
           name: Faker::Name.name,
-          phone: Faker::PhoneNumber.cell_phone,
+          phone: '0911-059-123',
           twid: TwidGenerator.generate
         )
         expect(coupon.uuid).not_to eq("")
