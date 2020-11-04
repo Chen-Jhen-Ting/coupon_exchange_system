@@ -64,5 +64,27 @@ RSpec.describe User, type: :model do
     
   end
 
+  describe 'User create' do
+    context 'with email and password(faker)' do
+      it 'should create user' do
+        user = User.create(
+          email: Faker::Internet.email,
+          password: Faker::String.random
+        )
+        expect(user).to eq(User.last)
+      end
+    end
+
+    context 'with email and password' do
+      it ", we can get it's email" do
+        user = User.create(
+          email: 'zxcv@gmail.com',
+          password: Faker::String.random
+        )
+        expect(user.email).to eq('zxcv@gmail.com')
+      end
+    end
+  end
+
 
 end
