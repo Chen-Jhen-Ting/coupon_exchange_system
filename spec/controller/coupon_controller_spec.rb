@@ -30,7 +30,7 @@ RSpec.describe CouponsController, type: :controller do
         coupon: {
           name: 'test',
           twid: TwidGenerator.generate,
-          phone: '0987654321'
+          phone: '0987-654-321'
         }
       }
     end
@@ -44,7 +44,7 @@ RSpec.describe CouponsController, type: :controller do
 
       it 'should add one' do
         expect{
-          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0987654321' } }
+          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0987-654-321' } }
         }.to change(Coupon,:count).by(1)
       end
     end
@@ -64,7 +64,7 @@ RSpec.describe CouponsController, type: :controller do
 
       it 'should not add one' do
         expect{
-          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0987654321' } }
+          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0911-059-123' } }
         }.to change(Coupon, :count).by(0)
       end
     end
