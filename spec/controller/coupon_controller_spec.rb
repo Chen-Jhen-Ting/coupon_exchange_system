@@ -36,6 +36,19 @@ RSpec.describe CouponsController, type: :controller do
     end
     let(:coupon) { Coupon.last }
 
+    context 'when first create' do
+      it 'should create coupon' do
+        expect(subject.status).to be 302
+        expect(coupon.attributes.symbolize_keys.slice(:name, :twid, :phone)).to eq(params[:coupon])
+      end
+
+      it 'should add one' do
+        expect{
+          post :create, params: { :coupon => { :name => "test", :twid => TwidGenerator.generate, :phone => '0987654321' } }
+        }.to change(Coupon,:count).by(1)
+      end
+    end
+
     
   end
 
