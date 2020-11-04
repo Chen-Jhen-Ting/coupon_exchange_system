@@ -13,7 +13,7 @@
     <% if @minimum_password_length %>
     <em>(最少 <%= @minimum_password_length %> 個字 )</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class:'form-control', placeholder:'密碼輸入'%>
+    <%= f.password_field :password, autocomplete: "new-password", class:'form-control', placeholder:'輸入密碼'%>
   </div>
 
   <div class="field form-group">
@@ -22,7 +22,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: 'btn btn-primary w-100' %>
+    <%= f.submit "註冊", class: 'btn btn-primary w-100' %>
   </div>
 <% end %>
 <div class='col-6 m-auto'>
