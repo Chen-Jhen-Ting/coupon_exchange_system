@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Feature test-', type: :feature, driver: :chrome, js: true, slow: true do
-  describe 'user sign in' do
+  describe 'user log in' do
     before(:each) do  
       User.create(
         email: 'te@gmail.com',
