@@ -27,7 +27,7 @@ class Coupon < ApplicationRecord
 
   def check_whether_phone_format_is_ok
     # if phone is exist
-    phone ? return : ""
+    phone ? "" : return
 
     if phone.match(/\A\d{4}-\d{3}-\d{3}\z/) == nil
       errors.add(:incorrect_phone, "手機號碼格式有誤，請參考 0911-012-456")
